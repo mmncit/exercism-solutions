@@ -1,6 +1,6 @@
 class TwoFer {
-  public static twoFer( /* Parameters go here */ ): string {
-    // Your code here
+  public static twoFer(name?: string): string {
+    return "One for " + (name || "you") + ", one for me.";
   }
 }
 
