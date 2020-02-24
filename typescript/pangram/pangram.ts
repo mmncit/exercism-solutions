@@ -1,9 +1,12 @@
-const isEmpty = (s: string) => s == ""
-const isLengthSmall = (s: string) => s.length < 26  // length of the sentence should be >= 26 to include all english letters
+import flip from 'ramda/src/flip';
+import lt from 'ramda/src/lt';
+import any from 'ramda/src/any';
 
+const isEmpty = (s: string) => s === ""
+const isLengthSmall = (s: string) => s.length < 26
 const validatePangram = (s: string) => {
     let indexOfLetters = new Array(26); 
-    indexOfLetters.fill(false);
+    indexOfLetters.fill(0);
     let indexOfCurrentLetter: number = 0;
     for(let i = 0; i < s.length; i++){
         let ascii = s.charCodeAt(i);
@@ -13,12 +16,11 @@ const validatePangram = (s: string) => {
         else if (97 <= ascii && ascii <= 122){
             indexOfCurrentLetter = ascii - 97;
         }
-        indexOfLetters[indexOfCurrentLetter] = true; 
+        indexOfLetters[indexOfCurrentLetter] = 1; 
     }
-    for(let i = 0; i < indexOfLetters.length; i++){
-        if(indexOfLetters[i] == false){
-            return false;
-        }
+    const lessThan1 = flip(lt)(1);
+    if (any(lessThan1)(indexOfLetters)){
+        return false;
     }
     return true;
 }
@@ -30,4 +32,3 @@ export function createPangram(s: string) {
         },
     }
 }
-

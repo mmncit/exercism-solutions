@@ -13,7 +13,8 @@ module.exports = {
     '.d.ts$',
     '<rootDir>/test/fixtures',
     '<rootDir>/test/helpers',
-    '__mocks__'
+    '__mocks__',
+    '/node_modules/(?!ramda).+\\.(js|tsx|ts)$'
   ],
   transform: {
     '^.+\\.[jt]sx?$': 'ts-jest',

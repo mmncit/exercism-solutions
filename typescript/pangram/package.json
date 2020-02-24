@@ -17,7 +17,8 @@
     "eslint-plugin-import": "^2.18.2",
     "jest": "^24.9.0",
     "ts-jest": "^24.1.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.6.4",
+    "@types/ramda": "^0.26.41"
   },
   "scripts": {
     "test": "yarn lint:types && jest --no-cache",
@@ -25,5 +26,7 @@
     "lint:types": "yarn tsc --noEmit -p .",
     "lint:ci": "eslint . --ext .tsx,.ts"
   },
-  "dependencies": {}
+  "dependencies": {
+    "ramda": "^0.27.0"
+  }
 }
